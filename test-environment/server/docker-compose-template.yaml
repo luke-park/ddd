@@ -1,0 +1,18 @@
+version: "3.1"
+services:
+
+    {{- $postgres := index . "postgres" }}
+    postgres:
+        image: postgres:{{ $postgres.Tag }}
+        environment:
+        {{- range $name, $value := $postgres.EnvironmentVariables }}
+            {{ $name }}: "{{ $value }}"
+        {{- end }}
+
+    {{- $redis := index . "redis" }}
+    redis:
+        image: redis:{{ $redis.Tag }}
+        environment:
+        {{- range $name, $value := $redis.EnvironmentVariables }}
+            {{ $name }}: "{{ $value }}"
+        {{- end }}

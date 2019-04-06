@@ -1,0 +1,13 @@
+[postgres]
+Tag = "env:TEST_VAR"
+
+	[postgres.EnvironmentVariables]
+	POSTGRES_USER = "subroot"
+    POSTGRES_PASSWORD = "noms1234"
+    POSTGRES_DB = "noms"
+
+[redis]
+Tag = "5"
+
+	[redis.EnvironmentVariables]
+	SOME_VAR_REDIS = "1234"
