@@ -57,14 +57,6 @@ func run() error {
 		}
 	}
 
-	// DEBUG -----------------
-	for k, v := range map[string]*deployment.Service(deploymentPayload) {
-		fmt.Printf("- %v:%v\n", k, v.Tag)
-		for name, val := range v.EnvironmentVariables {
-			fmt.Printf("\t%v = %v\n", name, val)
-		}
-	}
-
 	var bundler bundling.MessageBundler
 	if config.SymmetricKey != "" {
 		key, err := hex.DecodeString(config.SymmetricKey)
