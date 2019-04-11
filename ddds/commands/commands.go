@@ -7,7 +7,7 @@ import (
 
 // RestartDocker does exactly what you might imagine it would do.
 func RestartDocker() error {
-	cmd := exec.Command("bash", "-c", "sudo docker-compose down && sudo docker-compose pull && sudo docker-compose up -d")
+	cmd := exec.Command("bash", "-c", "sudo docker-compose pull && sudo docker-compose down && sudo docker-compose up -d")
 	output, err := cmd.CombinedOutput()
 	if err == nil {
 		return nil
