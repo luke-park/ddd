@@ -1,4 +1,4 @@
-.PHONY: build clean
+.PHONY: build clean test run-server run-client
 
 build:
 	cd .\ddds & go build ddds
@@ -7,6 +7,11 @@ build:
 clean:
 	-del .\ddds\ddds.exe
 	-del .\dddc\dddc.exe
+
+test:
+	cd .\dddl & go test ./...
+	cd .\ddds & go test ./...
+	cd .\dddc & go test ./...
 
 run-server:
 	cd .\test-environment\server & ..\..\ddds\ddds.exe
