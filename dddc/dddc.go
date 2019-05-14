@@ -88,7 +88,9 @@ func run() error {
 		return err
 	}
 
-	socket.Send(buf.Bytes())
+	rawBuf := buf.Bytes()
+	socket.Send(rawBuf)
+	fmt.Printf("Sent %v bytes of deployment information to server...\n", len(rawBuf))
 	msg, err := socket.Receive()
 	if err != nil {
 		return err
@@ -97,6 +99,8 @@ func run() error {
 	if len(msg) != 1 || msg[0] != 1 {
 		return fmt.Errorf("server-side deployment error: %v", string(msg))
 	}
+
+	fmt.Printf("-- Successful Deployment --\n\n")
 
 	return nil
 }

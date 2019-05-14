@@ -1,0 +1,10 @@
+[Unit]
+After=network.target
+
+[Service]
+User=subroot
+WorkingDirectory=/home/subroot/ddd
+ExecStart=/home/subroot/ddds
+
+[Install]
+WantedBy=multi-user.target
