@@ -14,7 +14,7 @@ mv ~/ddd-repo/install/ddds.toml ~/ddd/ddds.toml
 # Add the service
 sudo mv ~/ddd-repo/install/dddsd.service /etc/systemd/system/dddsd.service
 sudo systemctl enable dddsd
-sudo systemctl start dddsd
 
 # Cleanup
 rm -R ~/ddd-repo
+rm ~/ddd.tar.gz
